@@ -11,7 +11,10 @@
 {% block content %}
     <div class="flex flex-col lg:flex-row lg:gap-8">
         <div class="grow">
-            <div class="mb-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <!-- মূল গ্রিড কন্টেইনার (এখানেই ৩টি কার্ড পাশাপাশি বসবে) -->
+            <div class="mb-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+                
+                <!-- ১. Total Users Card -->
                 <div class="bg-white block border border-base-200 p-6 relative rounded-default shadow-xs dark:bg-base-900 dark:border-base-800">
                     <div class="flex items-center gap-4">
                         <span class="material-symbols-outlined text-primary-600 text-4xl dark:text-primary-500">group</span>
@@ -22,6 +25,7 @@
                     </div>
                 </div>
 
+                <!-- ২. Active Users Card -->
                 <div class="bg-white block border border-base-200 p-6 relative rounded-default shadow-xs dark:bg-base-900 dark:border-base-800">
                     <div class="flex items-center gap-4">
                         <span class="material-symbols-outlined text-primary-600 text-4xl dark:text-green-500">verified_user</span>
@@ -31,7 +35,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- ৩. Total Income Card (এখন এটি Active Users-এর পাশে দেখাবে) -->
+                <div class="bg-white block border border-base-200 p-6 relative rounded-default shadow-xs dark:bg-base-900 dark:border-base-800">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary-600 text-4xl dark:text-green-500">payments</span>
+                        <div>
+                            <p class="text-sm text-base-500 dark:text-base-400">Total Income</p>
+                            <p class="font-semibold mt-1 text-3xl text-important">{{ total_income }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
 
             <div class="mb-6">
                 {% component "unfold/components/card.html" with title="Monthly user registrations" %}
@@ -40,6 +56,7 @@
             </div>
         </div>
 
+        
         <div class="lg:w-96 xl:w-[28rem]">
             <div class="bg-white border border-base-200 mb-6 p-4 rounded-default shadow-xs dark:bg-base-900 dark:border-base-800">
                 <div class="flex items-center mb-4">
